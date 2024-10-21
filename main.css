@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* prevent page from streaching */
+    overscroll-behavior-y: none;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+:root {
+    --button-background: #ffffff;
+    --body-background-color: #f1f1f1;
+    --button-border: 2px solid #4CAF50;
+    --button-border-radius: 20px;
+    --button-color: #4CAF50;
+    --button-hover-background: #f1f1f1;
+    --card-border-radius: 20px;
+    --card-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    --card-hover-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    --image-border-radius: 25px;
+    --image-hover-shadow-blur: 20px;
+    --image-shadow-blur: 10px;
+    --image-shadow-color: #000000;
+    --image-shadow-offset-x: 5px;
+    --image-shadow-offset-y: 5px;
+    --nav-links-border-radius: 40px;
+    --nav-background-color: #333;
+    --nav-link-color: #ffffff;
+    --nav-link-hover-background: #555;
+    --nav-link-hover-color: #ffffff;
+    --svg-hover-effect: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
+button {
+    border: var(--button-border);
+    color: var(--button-color);
+    background-color: var(--button-background);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--button-hover-background);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+nav {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    min-height: 8vh;
+    font-family: 'Poppins', sans-serif;
+    gap: 15px;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: rgb(192, 214, 255);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    position: relative;
+}
+nav::before {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: inherit;
+    pointer-events: none;
+}
+nav a svg:hover {
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+nav a svg {
+    transition: transform 0.3s ease-in-out;
+}
+#dropdown-menu svg {
+    transition: transform 0.3s ease-in-out;
+}
+
+#dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--dropdown-bg-color);
+    box-shadow: var(--dropdown-box-shadow);
+    border-radius: var(--dropdown-border-radius);
+    min-width: 200px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    color: black;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
