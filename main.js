@@ -59,4 +59,41 @@ document.addEventListener('DOMContentLoaded', () => {
     cards.forEach(card => {
         observer.observe(card);
     });
+
+    // Counter animation
+    const counters = document.querySelectorAll('.count');
+    const speed = 600; // The lower the slower
+
+    const animateCounts = () => {
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+
+                const increment = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+
+            updateCount();
+        });
+    };
+
+    const observerCount = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounts();
+                observerCount.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+
+    observerCount.observe(document.querySelector('.industry-experties-count'));
 });
