@@ -42,4 +42,21 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdownIcon.querySelector('svg').style.transform = 'rotate(-90deg)';
         }
     });
+
+    // Intersection Observer for the cards
+    const cards = document.querySelectorAll('.our-services-info-cards');
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    cards.forEach(card => {
+        observer.observe(card);
+    });
 });

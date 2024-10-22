@@ -12,6 +12,11 @@ body {
     overscroll-behavior-y: none;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 :root {
@@ -45,6 +50,16 @@ body {
     --nav-link-hover-background: #555;
     --nav-link-hover-color: #ffffff;
     --svg-hover-effect: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+    --card-background: #fff;
+    --card-border-radius: 15px;
+    --card-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --card-hover-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    --profile-picture-border: linear-gradient(45deg, #6a11cb, #2575fc);
+    --profile-picture-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    --profile-name-color: #333;
+    --profile-title-color: #777;
+    --profile-description-color: #555;
+    --transition-duration: 0.3s;
 }
 
 button {
@@ -249,4 +264,300 @@ button:hover::before {
 .hero-div-landing {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('ARAMSLOGO.jpg') no-repeat center center/cover;
     background-blend-mode: multiply;
+}
+
+.about-us-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 70px;
+    background-color: var(--body-background-color);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-box-shadow);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.about-us-div:hover {
+    box-shadow: var(--card-hover-box-shadow);
+}
+
+.about-us-heading h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.about-us-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    gap: 20px;
+}
+
+.about-us-content p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #555;
+    line-height: 2;
+    max-width: 800px;
+}
+
+.about-us-image {
+    width: 80%;
+    height: auto;
+    max-width: 300px;
+    max-height: 400px;
+    margin-right: 50px;
+    border-radius: var(--image-border-radius);
+    box-shadow: var(--card-box-shadow);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.about-us-image:hover {
+    transform: scale(1.05);
+    box-shadow: var(--card-hover-box-shadow);
+}
+
+#about-us-info {
+    padding: 0 50px;
+    text-align: justify;
+    width: 100%;
+    margin-top: 50px;
+}
+
+/* Center the heading and slogan */
+.our-services-heading {
+    text-align: center;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 40px;
+}
+
+.our-services-heading h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #4CAF50;
+}
+
+.our-services-heading h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2a2a2a;
+}
+
+/* Arrange the cards in a grid */
+.our-services-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0 70px;
+}
+
+/* Style each card */
+.our-services-info-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-box-shadow);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.our-services-info-cards:hover {
+    transform: scale(1.05);
+    box-shadow: var(--card-hover-box-shadow);
+}
+
+.our-services-info-cards svg {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+    filter: var(--svg-hover-effect);
+}
+
+.our-services-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+}
+
+.our-services-description {
+    font-size: 1rem;
+    color: #555;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+/* Add this at the end of your main.css file */
+
+.our-services-info-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-box-shadow);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.our-services-info-cards.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.our-services {
+    padding: 50px 20px; /* Added side padding */
+}
+
+.our-services-heading {
+    text-align: center;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 40px;
+}
+
+.our-services-heading h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #4CAF50;
+}
+
+.our-services-heading h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2a2a2a;
+}
+
+/* Arrange the cards in a grid */
+.our-services-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Ensure 3 cards per row */
+    gap: 30px; /* Gap between cards */
+    padding: 0 70px; /* Side padding */
+}
+
+/* Style each card */
+.our-services-info-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-box-shadow);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.our-services-info-cards:hover {
+    transform: scale(1.05);
+    box-shadow: var(--card-hover-box-shadow);
+}
+
+.our-services-info-cards svg {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+    filter: var(--svg-hover-effect);
+}
+
+.our-services-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+}
+
+.our-services-description {
+    font-size: 1rem;
+    color: #555;
+    text-align: justify;
+    line-height: 1.6;
+}
+/* profile showcase */
+.profile-showcase {
+    margin-top: 50px;
+    padding: 20px 70px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 95%;
+}
+
+.profile-card {
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-box-shadow);
+    padding: 20px;
+    text-align: center;
+    transition: box-shadow var(--transition-duration), transform var(--transition-duration);
+}
+
+.profile-card:hover {
+    box-shadow: var(--card-hover-box-shadow);
+    transform: translateY(-10px);
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: var(--profile-picture-border);
+    padding: 5px;
+    box-shadow: var(--profile-picture-shadow);
+    transition: transform var(--transition-duration);
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.profile-name {
+    font-size: 1.5rem;
+    color: var(--profile-name-color);
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.profile-title {
+    font-size: 1.2rem;
+    color: var(--profile-title-color);
+    margin: 5px 0;
+}
+
+.profile-description {
+    font-size: 1rem;
+    color: var(--profile-description-color);
+    padding: 10px 30px;
+    line-height: 1.6;
+    text-align: justify;
+    margin-top: 20px;
+}
+
+@media (max-width: 850px) {
+    .profile-showcase {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-card {
+        margin-bottom: 20px;
+    }
 }
